@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  height: 93vh;
+  background-color: #3f6864;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-top: 60px;
+}
+
+

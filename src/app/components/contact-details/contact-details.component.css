@@ -1,0 +1,104 @@
+.contact-details-container {
+  width: 50%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #dbb7b0;
+  border-radius: 8px;
+  background-color: #a9cfc9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details-container h2 {
+  color: #265d53;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.detail-group {
+  flex: 1 1 48%;
+  margin-bottom: 15px;
+}
+
+.detail-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #305858;
+}
+
+.detail-group span {
+  display: block;
+  padding: 5px 0;
+  color: #265d53;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.edit-button, .delete-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit-button {
+  background-color: #419e8c;
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: #305858;
+}
+
+.delete-button {
+  background-color: #a45c54;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #265d53;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .contact-details-container {
+    width: 70%;
+    padding: 10px;
+  }
+
+  .detail-group {
+    flex: 1 1 35%;
+  }
+
+  .edit-button, .delete-button {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact-details-container {
+    width: 80%;
+    padding: 5px;
+  }
+
+  .detail-group {
+    flex: 1 1 65%;
+  }
+
+  .edit-button, .delete-button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}

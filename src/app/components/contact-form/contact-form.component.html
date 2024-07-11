@@ -1,0 +1,101 @@
+ <div class="contact-form-container">
+    <h2>{{ isEditMode ? 'Edit Contact' : 'Add New Contact' }}</h2>
+
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="John"
+          [(ngModel)]="contact.firstName"
+          required
+          minlength="2"
+          #firstName="ngModel"
+        >
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error">
+          <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+          <div *ngIf="firstName.errors?.['minlength']">First Name must be at least 2 characters long.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Doe"
+          [(ngModel)]="contact.lastName"
+          required
+          minlength="2"
+          #lastName="ngModel"
+        >
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error">
+          <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+          <div *ngIf="lastName.errors?.['minlength']">Last Name must be at least 2 characters long.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="098-765-4321"
+          [(ngModel)]="contact.phoneNumber"
+          required
+          pattern="^\d{3}-\d{3}-\d{4}$"
+          #phoneNumber="ngModel"
+        >
+        <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="error">
+          <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required.</div>
+          <div *ngIf="phoneNumber.errors?.['pattern']">Phone Number must be a valid number.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input
+          type="date"
+          id="dateOfBirth"
+          name="dateOfBirth"
+          [(ngModel)]="contact.dateOfBirth"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@mail.com"
+          [(ngModel)]="contact.email"
+          required
+          pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
+          email
+          #email="ngModel"
+        >
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Email must be a valid email address.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address (Optional):</label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          placeholder="123 Shevchenko st"
+          [(ngModel)]="contact.address"
+        >
+      </div>
+
+      <button type="submit" [disabled]="contactForm.invalid">{{ isEditMode ? 'Update Contact' : 'Add Contact' }}</button>
+    </form>
+  </div>

@@ -1,0 +1,40 @@
+ <div class="contact-details-container" *ngIf="contact">
+    <h2>Contact Details</h2>
+
+    <div class="details">
+      <div class="detail-group">
+        <label>First Name:</label>
+        <span>{{ contact?.firstName }}</span>
+      </div>
+
+      <div class="detail-group">
+        <label>Last Name:</label>
+        <span>{{ contact?.lastName }}</span>
+      </div>
+
+      <div class="detail-group">
+        <label>Phone Number:</label>
+        <span>{{ contact?.phoneNumber }}</span>
+      </div>
+
+      <div class="detail-group" *ngIf="contact?.dateOfBirth">
+        <label>Date of Birth:</label>
+        <span>{{ contact?.dateOfBirth | date }}</span>
+      </div>
+
+      <div class="detail-group" *ngIf="contact?.email">
+        <label>Email:</label>
+        <span>{{ contact?.email }}</span>
+      </div>
+
+      <div class="detail-group" *ngIf="contact?.address">
+        <label>Address:</label>
+        <span>{{ contact?.address }}</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button [routerLink]="['/contact-form', contact?.id]" class="edit-button">Edit Contact</button>
+      <button (click)="deleteContact()" class="delete-button">Delete Contact</button>
+    </div>
+  </div>
